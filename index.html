@@ -7,21 +7,24 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div id="myDIV" class="header">
-		<h3>T O D O</h3>
-		<input type="text" id="myInput" placeholder="Create a new todo...">
-		<span onclick="newElement()" class="addBtn">Enter</span>
-	</div>
-	<div class="todo">
-		<ul id="myUL">
-			<li>Hit the gym<hr></li>
-			<li class="checked">Pay bills<hr></li>
-			<li>Meet George<hr></li>
-			<li>Buy eggs<hr></li>
-			<li>Read a book<hr></li>
-			<li>Organize office<hr></li>
-		</ul>
-	</div>
-	<script src="script.js"></script>
+  <div class="container">
+    <div id="myDIV" class="header">
+      <h3>T O D O</h3>
+      <div class="inputBox">
+        <input type="text" id="myInput" placeholder="Create a new todo...">
+        <button class="addBtn">Enter</button>
+      </div>
+    </div>
+    <ul id="myUL">
+      <li>Javascript In Todo<span></span></li>
+      <li class="checked">1 Year Meditation <span></span></li>
+      <li> Complete Todo on Front-end <span></span></li>
+      <li>Moving on<span></span></li>
+      <li>Read a book <span></span></li>
+      <li>Organize office <span></span></li>
+    </ul>
+    <button id="Delete">Delete All</button>
+  </div>
+<script src="script.js"></script>
 </body>
 </html>
