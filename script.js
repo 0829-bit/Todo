@@ -65,15 +65,3 @@ document.querySelectorAll("#myUL li").forEach((li) => {
     li.classList.toggle("checked");
   });
 });
-
-// Get references to the clear all button and the task list container
-const clearAllButton = document.getElementById("clearAllBtn"); // Replace "clearAllBtn" with the actual ID of your clear all button
-const taskList = document.getElementById("myUL"); // Replace "myUL" with the actual ID of your task list container
-
-// Add an event listener to the clear all button
-clearAllButton.addEventListener("click", () => {
-    // Remove all child elements (tasks) from the task list container
-    while (taskList.firstChild) {
-        taskList.removeChild(taskList.firstChild);
-    }
-});
