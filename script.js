@@ -34,7 +34,7 @@ addBtn.addEventListener("click", () => {
     createTask(input.value.trim());
     input.value = "";
   } else {
-    alert("Please enter a!");
+    alert("Please enter a text!");
   }
 });
 
