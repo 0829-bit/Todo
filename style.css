@@ -1,22 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url("desktop.jpg.jpg");
+  background-size: cover;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: -1;
+}
+
+
 header {
   position: absolute;
-  left: 470px;
+  left: 570px;
   top: 100px;
   color: white;
 }
 input[type=text] {
   position: absolute;
   top: 35%;
-  left: 47%;
+  left: 54%;
   transform: translate(-50%, -50%);
   width: 300px;
   padding: 15px;
   color: rgb(45, 37, 70);
+  align-items: center;
 }
 button {
   position: absolute;
   top: 35%;
-  left: 65%;
+  left: 70%;
   transform: translate(-50%, -50%);
   padding: 15px;
   background: #d9d9d9;
@@ -34,6 +56,7 @@ ul {
 
 ul li {
   background: rgb(45, 37, 70);
+  left: 200px;
   font-size: 18px;
   transition: 0.2s;
   cursor: pointer;
@@ -45,7 +68,6 @@ ul li {
   justify-content: center;
   display: flex;
   align-items: center;
-  box-shadow: 0 6px 16px rgba(131, 131, 17, 0.35);
 }
 
 ul li:hover {
@@ -64,12 +86,18 @@ ul li span {
   font-size: 18px;
   transition: 0.2s;
 }
-
-.done {
+.checked {
   text-decoration: line-through;
   color: gray;
+  opacity: 0.7;
 }
+
+
 li:hover {
   background-color: #d0e1fd;
 }
 
+footer {
+ text-align: center;
+ color: white;
+}
