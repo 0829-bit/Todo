@@ -2,7 +2,6 @@ const input = document.getElementById("myInput");
 const addBtn = document.querySelector(".addBtn");
 const ul = document.getElementById("myUL");
 
-document.addEventListener("DOMContentLoaded", loadTodos);
 addBtn.addEventListener("click", addTodo);
 input.addEventListener("keypress", e => {
   if (e.key === "Enter") addTodo();
