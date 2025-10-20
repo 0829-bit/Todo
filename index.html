@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Todo-app</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo-app</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <div class="container">
+    <img src="desktop.jpg.jpg" alt="background" class="bg" sizes="32x32">
   </div>
-<img src="desktop.jpg.jpg" alt="background" class="bg" sizes="32x32"><br>
-</div>
+
   <header>
     <h1>T O D O</h1>
   </header>
+
+  <main class="text-container">
+    <div class="inputBox">
+      <input type="text" id="myInput" placeholder="Create a new todo...">
+      <button class="addBtn">Add</button>
     </div>
-  <div class="text-container">
-     <div class="inputBox">
-        <input type="text" id="myInput" placeholder="Create a new todo...">
-        <button class="addBtn">Enter</button></div>
+
     <ul id="myUL">
-      <li>Javascript In Todo<span></span></li>
-      <li class="checked">1 Year Meditation <span></span></li>
-      <li> Complete Todo on Front-end <span></span></li>
-      <li>Moving on<span></span></li>
+      <li>Javascript In Todo <span></span></li>
+      <li class="checked">Complete Todo on Front-end<span></span></li>
+      <li>1 Year Meditation<span></span></li>
+      <li>Moving on <span></span></li>
       <li>Read a book <span></span></li>
       <li>Organize office <span></span></li>
     </ul>
-  </div>
-      </div>
-<script src="script.js"></script>
-<footer>
-  <p>Copyright &copy; 2025 All rights reserved | Made by <b>Obey Tobiloba Gbemisola</b></p>
+  </main>
+
+  <footer>
+    <p>Copyright &copy; 2025 All rights reserved | Made by <b>Obey Tobiloba Gbemisola</b></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
