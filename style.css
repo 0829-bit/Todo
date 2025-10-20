@@ -12,15 +12,16 @@
 body {
   margin: 0;
   padding: 0%;
-  background: url('desktop.jpg.jpg') center/cover no-repeat;
-  min-height: 100vh;
-  position: relative;
+  background: url('desktop.jpg.jpg');
+  background-size: cover;
+  height: 100vh;
+  position: fixed;
   width: 100%;
 }
 
 body::before {
   content : "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -64,10 +65,9 @@ input {
 
 ul {
   list-style: none;
-  margin: 15px auto 80px;
+  margin: 15px auto;
   padding: 15px;
-  width: 90%;
-  max-width: 900px;
+  width: 50% ;
   color: white;
   text-align: left;
 }
@@ -122,12 +122,4 @@ footer {
   top: 90%;
   color: white;
   font-size: 30px;
-  margin: 40px auto;
-}
-
-footer {
-  text-align: center;
-  margin: 40px auto;
-  color: white;
-  font-size: 16px;
 }
