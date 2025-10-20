@@ -1,120 +1,151 @@
+/* ...existing code... */
 
+/* Background image element (keeps your <img class="bg"> usage) */
 .bg {
   position: absolute;
   top: 0;
-  left:   0;
-  width: 100%;
-  height: 40vh;    
-  object-fit: cover; 
-  z-index: -1;          
-}
-
-body {
-  margin: 0;
-  padding: 0%;
-  background: url('desktop.jpg.jpg');
-  background-size: cover;
-  height: 100vh;
-  position: fixed;
-  width: 100%;
-}
-
-body::before {
-  content : "";
-  position: fixed;
-  top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: black;
+  height: 40vh;
+  object-fit: cover;
   z-index: -1;
 }
 
-header {
-  position: absolute;
-  left: 950px;
-  top: 100px;
-  color: white;
-  font-size: 40px;
+/* Page layout: allow content to flow and grow (no fixed height) */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;       /* let body be taller than viewport when list grows */
+  position: relative;      /* layer content over .bg */
+  width: 100%;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #fff;
+  background-color: #0b1220; /* fallback if bg image missing */
 }
 
-
-button {
+/* subtle overlay over background */
+body::before {
+  content: "";
   position: absolute;
-  top: 28%;
-  left: 66%;
-  transform: translate(-50%, -50%);
-  padding: 23px;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Header flows normally (no absolute positioning) */
+header {
+  text-align: center;
+  margin: 48px 0 8px;
+  color: white;
+  font-size: clamp(24px, 6vw, 40px);
+}
+
+/* Input + button container keeps them inline and responsive */
+.inputBox {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px auto;
+  width: 92%;
+  max-width: 900px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Input and button: inline, responsive (removed absolute positioning) */
+input#myInput {
+  padding: 12px 16px;
+  width: 65%;
+  max-width: 640px;
+  font-size: clamp(16px, 2.4vw, 20px);
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.95);
+  color: #000;
+  z-index: 1;
+}
+
+button.addBtn {
+  padding: 12px 18px;
   background: #d9d9d9;
   color: #010308;
   cursor: pointer;
-  font-size: 20px;
+  font-size: clamp(14px, 1.8vw, 18px);
+  border: none;
+  border-radius: 8px;
 }
 
-input {
-  position: absolute;
-  top: 28%;
-  left: 49%;
-  transform: translate(-50%, -50%);
-  padding: 15px;
-  width: 28%;
-  font-size: 30px;
-  border: 2px solid #ddd;
-  z-index: 2;
-}
-
+/* List container: centered block that grows vertically */
 ul {
   list-style: none;
-  margin: 15px auto;
-  padding: 15px;
-  width: 50% ;
+  margin: 18px auto 80px;
+  padding: 8px;
+  width: 92%;
+  max-width: 900px;
   color: white;
   text-align: left;
+  box-sizing: border-box;
 }
 
+/* Each list item: full-width, flexible height, left-aligned text */
 ul li {
- background: hsl(235, 19%, 35%);
- left: 250px;
- font-size: 30px;
- transition: 0.2s;
- cursor: pointer;
- position: relative;
- border-bottom: 1px solid #ddd;
- top: 500px;
- width: 60%;
- height: 80px;
- justify-content: flex-start;
- padding: 12px 16px;
- display: flex;
- align-items: center;
- top: 400px;
+  background: hsl(235, 19%, 35%);
+  font-size: clamp(16px, 2.2vw, 20px);
+  transition: 0.15s;
+  cursor: pointer;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  width: 100%;
+  min-height: 56px;       /* allow multiline items */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* left align content */
+  padding: 12px 16px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  word-break: break-word; /* wrap long content */
 }
 
-
+/* Delete "×" pinned to the right using flex + auto margin */
 ul li .close {
-  margin-left: auto;      /
+  margin-left: auto;
   font-size: 28px;
   color: rgba(255,255,255,0.95);
   padding-right: 12px;
   cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-
+/* Hover and checked states */
 ul li:hover {
   background: #032d6181;
 }
-
 
 ul li.checked {
   text-decoration: line-through;
   color: #888;
 }
 
-
+/* Footer flows after content (no absolute positioning) */
 footer {
-  position: absolute;
-  left: 900px;
-  top: 90%;
+  text-align: center;
+  margin: 32px auto 48px;
   color: white;
-  font-size: 30px;
+  font-size: clamp(12px, 1.8vw, 18px);
+}
+
+/* Small screens tweak: stack input/button */
+@media (max-width: 520px) {
+  input#myInput { width: 100%; max-width: none; }
+  .inputBox { flex-direction: column; gap: 8px; align-items: stretch; }
+  button.addBtn { width: 100%; }
+  ul { padding: 6px; }
+  ul li { font-size: 16px; padding: 10px; }
 }
